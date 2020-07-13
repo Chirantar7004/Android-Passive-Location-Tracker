@@ -51,7 +51,7 @@ I designed a simple Hello world application which exploits this vulnerability in
 
 Using SSID which tells us about the name of the network and BSSID I extracted the current location of user by making use of API from Wigle. I have to send the information(BSSID & SSID) using a HTTP request and after doing authentication with the server, I get the information about the latitude and longitude which are stored in log files for demonstration purposes and which can be sent via backend mail to server. The following screenshot demonstrates the output.
 
-![Working proof!](screenshot.png)
+![Working proof!](Screenshot.png)
 ## Mitigation Strategies
 Since the vulnerability is a part of Android OS inter process communication where OS itself send out the broadcast, it was fixed by Google in the Latest Android 9 version. The root cause of was improper management of Intents and filling them with sensitive information. So the best way to mitigate the vulnerability is by upgrading to the latest Android version.
 Both of these flaws are also reminiscent of the man-in-the-disk problem discussed at DEFCON 2018, which also concerns cross-application information leakage. The problem lies in the fact that Android’s OS makes use of two types of storage: Internal storage, which provides every app with its own sandbox; and an external storage mechanism that uses a removable SD card. Developers need to be careful while designing the intents sent in the broadcast and allow a proper use of external storage to make sure that vulnerabilities  are not created in the future.
